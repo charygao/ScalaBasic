@@ -53,6 +53,27 @@
             <version>2.0.0-preview</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.scopt/scopt_2.10 -->
+        <dependency>
+            <groupId>com.github.scopt</groupId>
+            <artifactId>scopt_2.10</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.twitter/util-core_2.10 -->
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>util-core_2.10</artifactId>
+            <version>6.34.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.cassandra/cassandra-all -->
+        <dependency>
+            <groupId>org.apache.cassandra</groupId>
+            <artifactId>cassandra-all</artifactId>
+            <version>3.7</version>
+        </dependency>
+
 
     </dependencies>
 
