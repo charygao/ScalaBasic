@@ -74,10 +74,47 @@ object scala_StrOpe {
   println(s" $name 今年$age 岁了, $weiget 公斤重")
 
   //raw：字符串前加入，内容中不转义
-  println(raw"\\\\asdf\asd\fas\dfa\sdf\a\")
+  println(raw"\\\\asdf\asd\fas\dfa\sdf\a\a")
+  //可能是IDEA的bug
+//  println(raw"\\\\asdf\asd\fas\dfa\sdf\a\")
 
   //在字符串中使用表达式
   println(s" ${name + "和小高"}今年${age + 1}岁了")
+
+
+  //挨个处理字符串中的字符
+  println(hello.map(c => c.toUpper))
+
+  //使用Scala魔法代码来简化
+  print(hello.map(_.toUpper))
+
+  //使用for循环
+  //将Hello中存有的字符串赋给c然后遍历c
+  for (c <- hello) {
+    println(c)
+  }
+
+  //yield：将map中的信息存到内存中
+  for (c <- hello)yield {
+    println(c.toUpper)
+  }
+
+  for (c <- hello if c !='l') {
+    println(c)
+  }
+
+  //给map一个算法
+  println(hello.map(c => (c.toByte+32).toChar))
+
+  //或者
+  def toLarge(c: Char): Char = (c.toByte+32).toChar
+
+  //获取一个字符串中的有序集合字节：
+  println(hello.getBytes())
+
+  //字符串查找模式：正则表达式匹配
+  val worldPatten = "[a_z]+".r
+  println(worldPatten.findAllIn(hello))
 
 
 

@@ -31,15 +31,16 @@ import org.apache.spark.storage.StorageLevel
 
 
 /**
- * Logistic regression based classification.
- * This example uses Tachyon to persist rdds during computation.
- *
- * This is an example implementation for learning how to use Spark. For more conventional use,
- * please refer to either org.apache.spark.mllib.classification.LogisticRegressionWithSGD or
- * org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS based on your needs.
- */
+  * Logistic regression based classification.
+  * This example uses Tachyon to persist rdds during computation.
+  *
+  * This is an example implementation for learning how to use Spark. For more conventional use,
+  * please refer to either org.apache.spark.mllib.classification.LogisticRegressionWithSGD or
+  * org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS based on your needs.
+  */
 object SparkTachyonHdfsLR {
-  val D = 10   // Numer of dimensions
+  val D = 10
+  // Numer of dimensions
   val rand = new Random(42)
 
   def showWarning() {
@@ -59,7 +60,8 @@ object SparkTachyonHdfsLR {
     var x = new Array[Double](D)
     var i = 0
     while (i < D) {
-      x(i) = tok.nextToken.toDouble; i += 1
+      x(i) = tok.nextToken.toDouble;
+      i += 1
     }
     DataPoint(new DenseVector(x), y)
   }
@@ -80,7 +82,9 @@ object SparkTachyonHdfsLR {
     val ITERATIONS = args(1).toInt
 
     // Initialize w to a random value
-    var w = DenseVector.fill(D){2 * rand.nextDouble - 1}
+    var w = DenseVector.fill(D) {
+      2 * rand.nextDouble - 1
+    }
     println("Initial w: " + w)
 
     for (i <- 1 to ITERATIONS) {
@@ -95,4 +99,5 @@ object SparkTachyonHdfsLR {
     sc.stop()
   }
 }
+
 // scalastyle:on println
