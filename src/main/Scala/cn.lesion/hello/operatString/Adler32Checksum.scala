@@ -1,4 +1,4 @@
-package cn.lesion.training
+package cn.lesion.hello.operatString
 
 /**
   * Created in Intellij IDEA .
@@ -20,10 +20,10 @@ object Adler32Checksum {
     printf("checksum (hex)  = %s\n ", sum.toHexString)
   }
 
-  def adler32sum(s: String):Int = {
+  def adler32sum(s: String): Int = {
     var a = 1
     var b = 0
-    s.getBytes.foreach{char =>
+    s.getBytes.foreach { char =>
       a = (char + a) % MOD_ADLER
       b = (b + a) % MOD_ADLER
     }

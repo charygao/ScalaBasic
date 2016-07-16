@@ -1,8 +1,6 @@
-package github.gmle.hello
+package cn.lesion.hello.Training
 
-import java.io.{FileNotFoundException, File}
-
-import tachyon.exception.FileDoesNotExistException
+import java.io.File
 
 /**
   * Created for Intellij IDEA.

@@ -1,6 +1,5 @@
-package github.gmle.hello
+package cn.lesion.hello.Training
 
-import scala.io.StdIn
 import scala.util.control.Breaks
 
 /**

@@ -1,4 +1,4 @@
-package github.gmle.hello
+package cn.lesion.hello.Training
 
 /**
   * Created for Intellij IDEA.

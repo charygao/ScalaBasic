@@ -1,6 +1,4 @@
-package github.gmle.hello
-
-import java.io.File
+package cn.lesion.hello.Training
 
 import scala.io.Source
 

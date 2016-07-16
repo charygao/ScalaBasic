@@ -1,4 +1,4 @@
-package cn.lesion.training
+package cn.lesion.hello.operatString
 
 /**
   * Created by root on 16-7-13.
@@ -112,9 +112,30 @@ object scala_StrOpe {
   //获取一个字符串中的有序集合字节：
   println(hello.getBytes())
 
+
+  """
+    |创建一个Regex对象最简单的方法就是在一个String上调用 .r 方法。
+    |另一个办法就是引入Regex类，创建一个Regex实例，然后用这个实例做相同的事情。
+    |见 ： RegexTest.scala
+  """.stripMargin
+
   //字符串查找模式：正则表达式匹配
-  val worldPatten = "[a_z]+".r
-  println(worldPatten.findAllIn(hello))
+  val worldPatten = "l+".r
+  val match1 = worldPatten.findFirstIn(hello)
+  //返回一个迭代器
+  val matchs = worldPatten.findAllIn(hello)
+//  val matchs = worldPatten.findAllIn(hello).toArray
+
+  //找到第一个匹配并返回
+  println(match1)
+  //返回一个迭代器，如果没有找到任何结果，则会返回一个空的迭代器，不会为null，如果希望返回值为Array，在fundAllIn后加入 .toArray方法
+  //toList,toSeq,toVector也可以这样用
+  println(matchs)
+  //迭代
+  matchs.foreach(println)
+
+
+
 
 
 

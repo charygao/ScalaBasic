@@ -1,4 +1,4 @@
-package cn.lesion.hello
+package cn.lesion.hello.Training
 
 /**
   * Created for Intellij IDEA.
