@@ -1,5 +1,8 @@
 package cn.lesion.hello.operatString
 
+import scala.actors.migration.pattern
+import scala.util.matching.Regex
+
 /**
   * Created by root on 16-7-13.
   * 查看Predef源码
@@ -135,8 +138,87 @@ object scala_StrOpe {
   matchs.foreach(println)
 
 
+  """
+    |字符串中的替换模式：
+    |参阅：
+    |   StringOps类
+    |   Regex类
+    |问题：用正则变大事陪陪一段字符串然后替换他们
+    |方法：因为String不可便，不可以在他上面直接操作，
+    |      但是可以直接创建一个新的String，而这个String包含了替换后的内容，
+  """.stripMargin
+
+  //替换所有的数字为 ”x“。
+  val address = "123 Main Street Suite 101"
+  println("替换address：" + address.replaceAll("[0-9]", "x"))
+
+  val regex = "[0-9]".r
+  val newAddress = regex.replaceAllIn(address,"x")
+  println("替换newAddress：" + newAddress)
 
 
+  """
+    |问题：抽取String中的模式匹配的部分
+    |方法：定义正则表达式，在他们周围加上括号，可以当做“正则表达式组”使用。
+  """.stripMargin
 
+  //Defining the desired mode
+  val pattern = "([0-9]+) ([a-z]+)".r
+  // Sets num to "99", item to "bottles"
+  val pattern(num, item) = "99 bottles"
+  //print
+  for (pattern(num, item) <- pattern.findAllIn("99 bottles, 98 bananas"))
+    printf("%d,%s\n", num.toInt, item)
+
+  """
+    |访问字符串中的一个字符
+    |
+    |问题：得到字符串中指定位置的一个字符
+    |解决办法：
+    |   1、Java Api
+    |     "hello".charAt(0) -> h
+    |   2、Scala Api
+    |     "hello"(0)  -> h
+  """.stripMargin
+
+  println(hello.charAt(0))
+  println(hello(0))
+  //hello.apply(0)
+
+
+  """
+    |隐式转换关键字 implicit 的应用
+    |隐式转换函数是指在同一个作用域下面，一个给定输入类型并自动转换为指定返回类型的函数，
+    |这个函数和函数名字无关，和入参名字无关，只和入参类型以及返回类型有关。
+    |注意是同一个作用域。
+  """.stripMargin
+  //在String类中添加自定义的方法
+  //定义隐式转换的类和方法
+
+  //隐式转换      函数名   参数 参数类型 返回类型   函数的操作
+  //implicit def increment(s: String):String = s.map(c => (c+1).toChar)
+
+  def display(input:String):Unit = println(input)
+  implicit def typeCon(input:Int):String = input.toString
+  implicit def typeCon(input:Boolean):String = if(input) "true" else "false"
+  //  implicit def booleanTypeConvertor(input:Boolean):String = if(input) "true" else "false"
+
+  //返回其他类型:类型转换
+  implicit class StringImprovements(val s: String) {
+    def increment = s.map(c => (c + 1).toChar)
+    def decrement = s.map(c => (c - 1).toChar)
+    def hideAll: String = s.replaceAll(".", "*")
+    def plusOne = s.toInt + 1
+    def asBoolen = s match {
+      case "0" | "zero" | "" | " " => false
+      case  _=> true
+    }
+  }
+
+  println("1".plusOne)
+  println("hei.hei.hei".hideAll)
+  println("0".asBoolen)
+  println("1".asBoolen)
+  println("one".asBoolen)
 
 }

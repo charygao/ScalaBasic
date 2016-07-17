@@ -38,10 +38,9 @@ object RegexTest {
 
     //查找所有
     val matchs = numPatten.findAllIn(address)
-    matchs.foreach{e => matchs
+    matchs.foreach{e =>
       println(s"查找所有：found some matchs:$e")
     }
-
   }
 
 }
