@@ -1,4 +1,4 @@
-package cn.lesion.hello.operatString
+package cn.lesion.hello.operatString.SimpleCode
 
 import scala.util.matching.Regex
 

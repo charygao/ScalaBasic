@@ -28,7 +28,7 @@ import org.apache.spark.SparkContext._
   */
 object GroupByTest {
   def main(args: Array[String]) {
-    val sparkConf = new SparkConf().setAppName("GroupBy Test")
+    val sparkConf = new SparkConf().setAppName("GroupBy FormatString")
     var numMappers = if (args.length > 0) args(0).toInt else 2
     var numKVPairs = if (args.length > 1) args(1).toInt else 1000
     var valSize = if (args.length > 2) args(2).toInt else 1000

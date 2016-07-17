@@ -1,4 +1,4 @@
-package cn.lesion.hello.operatString
+package cn.lesion.hello.operatString.SimpleCode
 
 /**
   * Created in Intellij IDEA .
