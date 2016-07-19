@@ -10,8 +10,10 @@ import org.apache.spark._
 
 object SparkonePlueOne {
   def main(args: Array[String]) {
-    val conf = new SparkConf().setAppName("Spark Pi").setMaster("local[*]")
+    val conf = new SparkConf().setAppName("Spark plus+").setMaster("local[*]")
     val spark = new SparkContext(conf)
+
+    spark.textFile("hdfs://love:8020/")
 
     val count = 1+1
 
