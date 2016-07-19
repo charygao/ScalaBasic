@@ -16,9 +16,8 @@
  */
 
 // scalastyle:off println
-package cn.lesion.spark.scala
+package cn.lesion.spark.scala.SparkSource
 
-import org.apache.spark.SparkContext._
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**

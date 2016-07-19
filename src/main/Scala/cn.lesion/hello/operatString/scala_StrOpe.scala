@@ -1,8 +1,5 @@
 package cn.lesion.hello.operatString
 
-import scala.actors.migration.pattern
-import scala.util.matching.Regex
-
 /**
   * Created by root on 16-7-13.
   * 查看Predef源码

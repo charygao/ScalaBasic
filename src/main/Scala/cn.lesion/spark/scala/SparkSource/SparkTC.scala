@@ -16,13 +16,12 @@
  */
 
 // scalastyle:off println
-package cn.lesion.spark.scala
-
-import scala.util.Random
-import scala.collection.mutable
+package cn.lesion.spark.scala.SparkSource
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.SparkContext._
+
+import scala.collection.mutable
+import scala.util.Random
 
 /**
  * Transitive closure on a graph.

@@ -16,41 +16,39 @@
  */
 
 // scalastyle:off println
-package cn.lesion.spark.scala
+package cn.lesion.spark.scala.SparkSource
 
 import java.util.Random
 
-import scala.math.exp
-
-import breeze.linalg.{Vector, DenseVector}
-import org.apache.hadoop.conf.Configuration
-
+import breeze.linalg.{DenseVector, Vector}
 import org.apache.spark._
-import org.apache.spark.scheduler.InputFormatInfo
 
+import scala.math.exp
 
 /**
  * Logistic regression based classification.
+ * Usage: SparkLR [slices]
  *
  * This is an example implementation for learning how to use Spark. For more conventional use,
  * please refer to either org.apache.spark.mllib.classification.LogisticRegressionWithSGD or
  * org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS based on your needs.
  */
-object SparkHdfsLR {
+object SparkLR {
+  val N = 10000  // Number of data points
   val D = 10   // Numer of dimensions
+  val R = 0.7  // Scaling factor
+  val ITERATIONS = 5
   val rand = new Random(42)
 
   case class DataPoint(x: Vector[Double], y: Double)
 
-  def parsePoint(line: String): DataPoint = {
-    val tok = new java.util.StringTokenizer(line, " ")
-    var y = tok.nextToken.toDouble
-    var x = new Array[Double](D)
-    var i = 0
-    while (i < D) {
-      x(i) = tok.nextToken.toDouble; i += 1
+  def generateData: Array[DataPoint] = {
+    def generatePoint(i: Int): DataPoint = {
+      val y = if (i % 2 == 0) -1 else 1
+      val x = DenseVector.fill(D){rand.nextGaussian + y * R}
+      DataPoint(x, y)
     }
-    DataPoint(new DenseVector(x), y)
+    Array.tabulate(N)(generatePoint)
   }
 
   def showWarning() {
@@ -64,23 +62,12 @@ object SparkHdfsLR {
 
   def main(args: Array[String]) {
 
-    if (args.length < 2) {
-      System.err.println("Usage: SparkHdfsLR <file> <iters>")
-      System.exit(1)
-    }
-
     showWarning()
 
-    val sparkConf = new SparkConf().setAppName("SparkHdfsLR")
-    val inputPath = args(0)
-    val conf = new Configuration()
-    val sc = new SparkContext(sparkConf,
-      InputFormatInfo.computePreferredLocations(
-        Seq(new InputFormatInfo(conf, classOf[org.apache.hadoop.mapred.TextInputFormat], inputPath))
-      ))
-    val lines = sc.textFile(inputPath)
-    val points = lines.map(parsePoint _).cache()
-    val ITERATIONS = args(1).toInt
+    val sparkConf = new SparkConf().setAppName("SparkLR")
+    val sc = new SparkContext(sparkConf)
+    val numSlices = if (args.length > 0) args(0).toInt else 2
+    val points = sc.parallelize(generateData, numSlices).cache()
 
     // Initialize w to a random value
     var w = DenseVector.fill(D){2 * rand.nextDouble - 1}
@@ -95,6 +82,7 @@ object SparkHdfsLR {
     }
 
     println("Final w: " + w)
+
     sc.stop()
   }
 }

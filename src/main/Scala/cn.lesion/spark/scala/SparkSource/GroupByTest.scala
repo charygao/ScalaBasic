@@ -16,12 +16,11 @@
  */
 
 // scalastyle:off println
-package cn.lesion.spark.scala
+package cn.lesion.spark.scala.SparkSource
 
 import java.util.Random
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.SparkContext._
 
 /**
   * Usage: GroupByTest [numMappers] [numKVPairs] [KeySize] [numReducers]

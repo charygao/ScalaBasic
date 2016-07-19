@@ -16,10 +16,9 @@
  */
 
 // scalastyle:off println
-package cn.lesion.spark.scala
+package cn.lesion.spark.scala.SparkSource
 
 import org.apache.commons.math3.linear._
-
 import org.apache.spark._
 
 /**

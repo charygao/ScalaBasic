@@ -15,20 +15,36 @@
  * limitations under the License.
  */
 
-package cn.lesion.spark.scala
+// scalastyle:off println
+package cn.lesion.spark.scala.SparkSource
 
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark._
+import org.apache.spark.storage.StorageLevel
 
-object ExceptionHandlingTest {
+import scala.math.random
+
+/**
+ *  Computes an approximation to pi
+ *  This example uses Tachyon to persist rdds during computation.
+ */
+object SparkTachyonPi {
   def main(args: Array[String]) {
-    val sparkConf = new SparkConf().setAppName("ExceptionHandlingTest")
-    val sc = new SparkContext(sparkConf)
-    sc.parallelize(0 until sc.defaultParallelism).foreach { i =>
-      if (math.random > 0.75) {
-        throw new Exception("Testing exception handling")
-      }
-    }
+    val sparkConf = new SparkConf().setAppName("SparkTachyonPi")
+    val spark = new SparkContext(sparkConf)
 
-    sc.stop()
+    val slices = if (args.length > 0) args(0).toInt else 2
+    val n = 100000 * slices
+
+    val rdd = spark.parallelize(1 to n, slices)
+    rdd.persist(StorageLevel.OFF_HEAP)
+    val count = rdd.map { i =>
+      val x = random * 2 - 1
+      val y = random * 2 - 1
+      if (x * x + y * y < 1) 1 else 0
+    }.reduce(_ + _)
+    println("Pi is roughly " + 4.0 * count / n)
+
+    spark.stop()
   }
 }
+// scalastyle:on println
