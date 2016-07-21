@@ -8,18 +8,15 @@ package cn.lesion.spark.scala.mySpark
 
 import org.apache.spark._
 
-object SparkTest {
+object SparkWordCount {
   def main(args: Array[String]) {
-    val conf = new SparkConf().setAppName("Spark Test").setMaster("local[*]")
+    val conf = new SparkConf().setAppName("Spark WordCount").setMaster("local[*]")
     val spark = new SparkContext(conf)
 
-    //读取HDFS文件
-    val file = spark.textFile("hdfs://love:9000/Data/test/webrank.txt")
+    //读取HDFS文件并检测单词 “AUDJPY”
+    val file = spark.textFile("hdfs://love:9000/Data/test/AUDJPY.txt").filter(_.contains("AUDJPY"))
 
-    //RDD转换
-    val filterRDD = file.filter(_.contains("2"))
-
-    //计数
+    //对单词进行计数
     println("Result =  " + file.count)
 
     spark.stop()
