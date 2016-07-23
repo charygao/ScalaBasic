@@ -27,17 +27,17 @@ import org.apache.spark.{SparkConf, SparkContext}
   */
 object GroupByTest {
   def main(args: Array[String]) {
-    val sparkConf = new SparkConf().setAppName("GroupBy FormatString")
-    var numMappers = if (args.length > 0) args(0).toInt else 2
-    var numKVPairs = if (args.length > 1) args(1).toInt else 1000
-    var valSize = if (args.length > 2) args(2).toInt else 1000
-    var numReducers = if (args.length > 3) args(3).toInt else numMappers
+    val sparkConf: SparkConf = new SparkConf().setAppName("GroupBy FormatString").setMaster("local[*]")
+    val numMappers = if (args.length > 0) args(0).toInt else 2
+    val numKVPairs = if (args.length > 1) args(1).toInt else 1000
+    val valSize = if (args.length > 2) args(2).toInt else 1000
+    val numReducers = if (args.length > 3) args(3).toInt else numMappers
 
     val sc = new SparkContext(sparkConf)
 
     val pairs1 = sc.parallelize(0 until numMappers, numMappers).flatMap { p =>
       val ranGen = new Random
-      var arr1 = new Array[(Int, Array[Byte])](numKVPairs)
+      val arr1 = new Array[(Int, Array[Byte])](numKVPairs)
       for (i <- 0 until numKVPairs) {
         val byteArr = new Array[Byte](valSize)
         ranGen.nextBytes(byteArr)
@@ -53,4 +53,5 @@ object GroupByTest {
     sc.stop()
   }
 }
+
 // scalastyle:on println
