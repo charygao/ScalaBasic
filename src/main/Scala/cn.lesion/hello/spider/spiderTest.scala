@@ -17,7 +17,7 @@ import java.util.regex.Pattern
 
 object CrawlerTest extends App {
 
-  new Crawler("http://www.qq.com", filter = (url: String) => url.contains(".qq.com")).crawl
+  new Crawler("http://www.qq.com", filter = (url: String) => url.contains(".jpg")).crawl
 
 }
 
