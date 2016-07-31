@@ -30,6 +30,17 @@ object scala_StrOpe {
   val fileterResult = hello.filter(_ != 'l')
   println("利用filter处理字符串：过滤l：" + fileterResult)
 
+  //字符串翻转
+  println(hello.reverse)
+
+  //StringBuilder
+  //破坏引用透明
+  val x = new StringBuilder("Hello")
+
+  x.append(",world")
+  println(x)
+  x.append(",world222")
+  println(x)
 
   //向封闭类中添加方法
   val _helloOpr1 = hello.drop(2).take(2).capitalize
