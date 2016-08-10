@@ -9,7 +9,7 @@ package cn.lesion.hadoop
 import java.nio.file.FileSystem
 import java.util._
 
-import org.apache.hadoop.fs.Path
+import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.hadoop.io._
 import org.apache.hadoop.mapred._
 
@@ -61,7 +61,6 @@ object WordCount {
     conf.setOutputKeyClass(classOf[Text])
     conf.setOutputValueClass(classOf[IntWritable])
 
-    val file:FileSystem = null
 
     conf.setMapperClass(classOf[Map])
     conf.setCombinerClass(classOf[Reduce])
@@ -72,7 +71,6 @@ object WordCount {
     //hdfs://127.0.0.1/Data/word hdfs://tmp/out
     FileInputFormat.setInputPaths(conf, new Path("hdfs://love:9000/Data/word"))
 
-    if ())
     FileOutputFormat.setOutputPath(conf, new Path("hdfs://love:9000/out/"))
 
     JobClient.runJob(conf)
