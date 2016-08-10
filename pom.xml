@@ -55,6 +55,7 @@
             <version>2.0.0-preview</version>
         </dependency>
 
+
         <!-- https://mvnrepository.com/artifact/org.spark-project.hive/spark-client -->
         <dependency>
             <groupId>org.spark-project.hive</groupId>

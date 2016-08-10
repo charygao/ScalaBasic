@@ -8,12 +8,12 @@ package cn.lesion.spark.scala.mySpark
 
 import org.apache.spark._
 
-object SparkonePlueOne {
+object Spark4Plus {
   def main(args: Array[String]) {
     val conf = new SparkConf().setAppName("Spark plus+").setMaster("local[*]")
     val spark = new SparkContext(conf)
 
-    spark.textFile("hdfs://love:8020/")
+//    spark.textFile("hdfs://love:8020/")
 
     val count = 1+1
 

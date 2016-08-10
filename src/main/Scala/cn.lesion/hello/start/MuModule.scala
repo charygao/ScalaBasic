@@ -27,3 +27,15 @@ object MuModule { // 生命一个单例对象，即同时声明一个类和它�
 
 }
 
+/**
+  * Scala的代码必须放在一个单例对象（也称为模块）。
+  * Scala代码必须放在一个单例对象（Object）或一个类（class）中
+  *
+  * Object关键字：
+  *   Object关键字创建一个新的单例类型，就像一个class只有一个被命名的实例
+  *
+  * MyModule对象有三个方法，它们使用def关键字生命：abs formatAbs和main
+  *
+  *
+  *
+  */
