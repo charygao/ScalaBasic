@@ -33,6 +33,7 @@ object Scala4Hdfs {
     }catch{
       case ex:FileNotFoundException => println("HDFS中没有这个文件。" + ex)
       case ex:PathIOException => println("没有这个目录。" + ex)
+//      case ex:NullPointerException => println("找不到。" + ex)
     }
   }
 
@@ -46,7 +47,9 @@ object Scala4Hdfs {
 
     println(conf) //Configuration: core-default.xml, core-site.xml
     val fileSystem = FileSystem.get(conf)
-    status(fileSystem, "/")
+//    status(fileSystem, "/")
+
+    delete("hdfs://love:9000/out/")
 
   }
 }

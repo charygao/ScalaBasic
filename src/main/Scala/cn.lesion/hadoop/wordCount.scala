@@ -53,6 +53,7 @@ class Reduce extends MapReduceBase
 object WordCount {
   def main(args: Array[String]) {
     val conf = new JobConf(this.getClass)
+
     conf.setJobName("WordCount")
     conf.set("fs.defaultFS","hdfs://love:9000")
     conf.set("mapred.job.tracker","hdfs://love:9001")
@@ -70,6 +71,8 @@ object WordCount {
 
     //hdfs://127.0.0.1/Data/word hdfs://tmp/out
     FileInputFormat.setInputPaths(conf, new Path("hdfs://love:9000/Data/word"))
+
+    Scala4Hdfs.delete("hdfs://love:9000/out/*")
 
     FileOutputFormat.setOutputPath(conf, new Path("hdfs://love:9000/out/"))
 
