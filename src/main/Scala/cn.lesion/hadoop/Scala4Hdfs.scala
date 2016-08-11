@@ -1,5 +1,8 @@
 package cn.lesion.hadoop
 
+import java.io.FileNotFoundException
+import java.lang.Exception
+
 import org.apache.hadoop.conf._
 import org.apache.hadoop.fs._
 
@@ -24,7 +27,13 @@ object Scala4Hdfs {
 
     val fileSystem: FileSystem = null
     println("list path:" + filePath)
-    val fs = fileSystem.listStatus(new Path(filePath))
+
+    try{
+      fileSystem.delete(new Path(filePath))
+    }catch{
+      case ex:FileNotFoundException => println("HDFS中没有这个文件。" + ex)
+      case ex:PathIOException => println("没有这个目录。" + ex)
+    }
   }
 
   def main(args: Array[String]) {

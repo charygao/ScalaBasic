@@ -73,6 +73,8 @@ object WordCount {
 
     FileOutputFormat.setOutputPath(conf, new Path("hdfs://love:9000/out/"))
 
+
+
     JobClient.runJob(conf)
 
   }
