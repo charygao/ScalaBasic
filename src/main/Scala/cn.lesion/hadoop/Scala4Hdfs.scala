@@ -1,7 +1,6 @@
 package cn.lesion.hadoop
 
 import java.io.FileNotFoundException
-import java.lang.Exception
 
 import org.apache.hadoop.conf._
 import org.apache.hadoop.fs._
@@ -23,10 +22,9 @@ object Scala4Hdfs {
     println("----------------------------------------")
   }
 
-  def delete(filePath:String) = {
+  def delete(fileSystem: FileSystem, filePath:String): Unit = {
 
-    val fileSystem: FileSystem = null
-    println("list path:" + filePath)
+    println("delete path:" + filePath)
 
     try{
       fileSystem.delete(new Path(filePath))
@@ -49,7 +47,7 @@ object Scala4Hdfs {
     val fileSystem = FileSystem.get(conf)
 //    status(fileSystem, "/")
 
-    delete("hdfs://love:9000/out/")
+    delete(fileSystem,"/out")
 
   }
 }
