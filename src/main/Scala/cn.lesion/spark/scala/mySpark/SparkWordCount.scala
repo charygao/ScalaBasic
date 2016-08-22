@@ -14,9 +14,12 @@ object SparkWordCount {
     val spark = new SparkContext(conf)
 
     //读取HDFS文件并检测单词 “AUDJPY”
-    val file = spark.textFile("hdfs://love:9000/Data/test/AUDJPY.txt").filter(_.contains("AUDJPY"))
+    //将数据缓存到内存（数据量大的时候，内存不足会造成内存溢出）
+    val file = spark.textFile("hdfs://love:9000/Data/test/webrank.txt").cache()
+    //执行过滤。
+//      .filter(_.contains("AUDJPY"))
 
-    //对单词进行计数
+    //统计所有单词
     println("Result =  " + file.count)
 
     spark.stop()

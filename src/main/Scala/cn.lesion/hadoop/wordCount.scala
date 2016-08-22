@@ -6,6 +6,7 @@ package cn.lesion.hadoop
   * Date: 16-8-9 .
   */
 
+import java.io.{OutputStream, InputStream}
 import java.util._
 
 import org.apache.hadoop.fs.{FileSystem, Path}
@@ -75,8 +76,12 @@ object WordCount {
 
     Scala4Hdfs.delete(fileSystem,"/out")
 
+      //输出到HDFS
     FileOutputFormat.setOutputPath(conf, new Path("hdfs://love:9000/out/"))
 
+//    val out = fileSystem.open(new Path("hdfs://love:9000/out/*"))
+
+//    println(out)
 
     JobClient.runJob(conf)
 
