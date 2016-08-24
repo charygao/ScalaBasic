@@ -19,7 +19,7 @@ object SparkSql {
     val spark = new SparkContext(conf)
     val sqlContext=new SQLContext(spark)
     val hiveContext=new HiveContext(spark)
-    val rddaujp = spark.textFile("hdfs://love:9000/Data/test/AUDJPY.txt").map(_.split(",")).map(au => aujp(au(0),au(1),au(2),au(3),au(4).trim.toInt))
+    val rddaujp = spark.textFile("hdfs://love:9000/Data/test/AUDJPY.WordCount").map(_.split(",")).map(au => aujp(au(0),au(1),au(2),au(3),au(4).trim.toInt))
 
 //    val peopleSchema = sqlContext.createSchemaRDD(rddaujp)
 

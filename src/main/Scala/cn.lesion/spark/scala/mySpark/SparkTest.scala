@@ -14,7 +14,7 @@ object SparkTest {
     val spark = new SparkContext(conf)
 
     //读取HDFS文件
-    val file = spark.textFile("hdfs://love:9000/Data/test/webrank.txt")
+    val file = spark.textFile("hdfs://love:9000/Data/test/webrank.WordCount")
 
     //RDD转换并过滤
     val filterRDD = file.filter(_.contains("2"))
