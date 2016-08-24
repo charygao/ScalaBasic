@@ -19,7 +19,7 @@ object SparkCache {
     //file.cache后，并不会马上进行缓存。Action操作触发之后再回执行cache
     file.cache()
 
-    val lists:List[String] = ()
+//    val lists:List[String] = ()
 
 
     //释放缓存

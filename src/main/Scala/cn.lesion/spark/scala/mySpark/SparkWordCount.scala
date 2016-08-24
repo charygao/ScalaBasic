@@ -15,7 +15,7 @@ object SparkWordCount {
 
     //读取HDFS文件并检测单词 “AUDJPY”
     //将数据缓存到内存（数据量大的时候，内存不足会造成内存溢出）
-    val file = spark.textFile("hdfs://love:9000/Data/test/webrank.WordCount").cache()
+    val file = spark.textFile("hdfs://love:9000/Data/test/webrank.txt").cache()
     //执行过滤。
 //      .filter(_.contains("AUDJPY"))
 
