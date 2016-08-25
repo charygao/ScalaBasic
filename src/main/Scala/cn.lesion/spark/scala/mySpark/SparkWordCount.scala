@@ -23,7 +23,7 @@ object SparkWordCount {
     file.saveAsTextFile("/home/lele/文档/Codes/Intellij_Idea/ScalaBasic/src/main/resources/Test/WordCount")
 
     file.flatMap(line => line.split(" ")) //分割
-      .map(data => (data,1))            //统计value为1的单词（映射为key-value对）
+      .map(data => (data,1))              //统计value为1的单词（映射为key-value对）
       .reduceByKey(_+_)                   //对同一个a第n次的数据进行聚集，统计单词个数
       .foreach(println)                   //输出。
 
