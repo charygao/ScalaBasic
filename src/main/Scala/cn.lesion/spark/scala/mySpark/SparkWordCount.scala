@@ -27,11 +27,9 @@ object SparkWordCount {
       .reduceByKey(_+_)                   //对同一个a第n次的数据进行聚集，统计单词个数
       .foreach(println)                   //输出。
 
-
     //统计所有单词个数
     println("Result =  " + file.count)
 
     spark.stop()
   }
 }
-
