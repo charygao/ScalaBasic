@@ -1,8 +1,7 @@
 package cn.lesion.hello.Option
 
+
 import junit.framework.TestCase
-import org.junit.Test
-import org.scalatest.Suite
 
 
 /**
@@ -12,11 +11,22 @@ import org.scalatest.Suite
   */
 class optionTest extends TestCase{
 
-  val capitals = Map("france" -> "paris", "japan" -> "tokyo")
+  val capitals = Map(
+    "france" -> "paris",
+    "japan" -> "tokyo"
+  )
+
+  var a,b: Option[String] = None
 
   def test1() {
-    val a = capitals get "france"
-    val b = capitals get "a"
+
+    try{
+      a = capitals get "france"
+      b = capitals get "a"
+    }catch {
+      case ex: NoSuchElementException => println("Missing file exception")
+    }
+
     println(a)
     println(b)
   }
