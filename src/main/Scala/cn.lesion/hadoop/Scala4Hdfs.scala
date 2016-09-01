@@ -27,7 +27,7 @@ object Scala4Hdfs {
     println("delete path:" + filePath)
 
     try{
-      fileSystem.delete(new Path(filePath))
+      fileSystem.delete(new Path(filePath), true)
     }catch{
       case ex:FileNotFoundException => println("HDFS中没有这个文件。" + ex)
       case ex:PathIOException => println("没有这个目录。" + ex)
