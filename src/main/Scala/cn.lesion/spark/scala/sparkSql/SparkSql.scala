@@ -1,7 +1,6 @@
 package cn.lesion.spark.scala.sparkSql
 
 import org.apache.spark.sql.hive.HiveContext
-import org.apache.spark.{SparkContext, SparkConf}
 
 /**
   * Created in Intellij IDEA .
@@ -12,7 +11,6 @@ import org.apache.spark.{SparkContext, SparkConf}
 import org.apache.spark.sql.Row
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
-
 
 
 object SparkSql {
