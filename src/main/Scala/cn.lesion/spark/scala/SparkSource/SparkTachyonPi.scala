@@ -29,7 +29,7 @@ import scala.math.random
  */
 object SparkTachyonPi {
   def main(args: Array[String]) {
-    val sparkConf = new SparkConf().setAppName("SparkTachyonPi")
+    val sparkConf = new SparkConf().setAppName("SparkTachyonPi").setMaster("local[*]")
     val spark = new SparkContext(sparkConf)
 
     val slices = if (args.length > 0) args(0).toInt else 2

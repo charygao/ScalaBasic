@@ -25,6 +25,7 @@ import scala.util.Random
 
 /**
  * Transitive closure on a graph.
+  * 图形闭包测试程序
  */
 object SparkTC {
   val numEdges = 200
@@ -42,7 +43,7 @@ object SparkTC {
   }
 
   def main(args: Array[String]) {
-    val sparkConf = new SparkConf().setAppName("SparkTC")
+    val sparkConf = new SparkConf().setAppName("SparkTC").setMaster("local[*]")
     val spark = new SparkContext(sparkConf)
     val slices = if (args.length > 0) args(0).toInt else 2
     var tc = spark.parallelize(generateGraph, slices).cache()
