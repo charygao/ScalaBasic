@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.Mapper
 import org.apache.hadoop.mapreduce.lib.input.{TextInputFormat, FileInputFormat}
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat
 import org.apache.hadoop.util.GenericOptionsParser
-import org.apache.hadoop.mapreduce.lib.output.{TextOutputFormat}
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat
 
 /**
   * https://hadoop.apache.org/docs/r2.2.0//api/org/apache/hadoop/mapred/lib/MultipleOutputs.html
@@ -26,7 +26,7 @@ class SplitMapper extends Mapper[Object,Text,Text,Text] {
   //https://github.com/rystsov/learning-hadoop/blob/master/src/main/java/com/twitter/rystsov/mr/MultipulOutputExample.java
 
   //var multipleOutputs :MultipleOutputs = null
-  private var multipleOutputs: MultipleOutputs[Text, Text] = null
+  private var multipleOutputs: MultipleOutputs[Text, Text] = _
 
   @throws(classOf[java.io.IOException])
   @throws(classOf[java.lang.InterruptedException])
@@ -47,12 +47,12 @@ class SplitMapper extends Mapper[Object,Text,Text,Text] {
     //var keys =
     val word = new Text
 
-    val line = value.toString()
+    val line = value.toString
     for (key <-  keys) {
 
       word.set(key)
       if (line.contains(key)) {
-        val mkey: String = key.toString().replace("/", "")
+        val mkey: String = key.toString.replace("/", "")
         context.write(word, value)
         multipleOutputs.write(mkey,
           word,
@@ -98,10 +98,9 @@ object SplitFile {
         |outputdir is a dir need not blank
         |tmpdir use for tmp
         |keeyoriginfile is a bool
-
       """
     print("\n\n")
-    print(args.toString())
+    print(args.toString)
     print(otherArgs)
     println()
     if (args.length < 5) {
