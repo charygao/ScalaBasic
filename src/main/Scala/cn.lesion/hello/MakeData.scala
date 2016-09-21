@@ -7,6 +7,7 @@ package cn.lesion.hello
   */
 
 import java.io.FileWriter
+import java.util.Date
 
 import scala.util.Random
 import cn.lesion.util.Charactor
@@ -30,12 +31,13 @@ object MakeData {
 
   def main(args: Array[String]) {
 
-    for (i <- 1 to 1000000) {
-      println(Charactor.createChinese() + "    " +randomInt(100))
+    for (i <- 1 to 10000000) {
+//      println(randomInt(10) + "," + randomInt(100) + "," + randomInt(1000) + "," + Charactor.createChinese1() + "," + Charactor.createChinese2()+ "," + Charactor.createChinese3()+ "," + Charactor.createChinese4() + "," +new Date  + "\n")
 
       val out = new FileWriter("./out.txt", true)
 
-      out.write(Charactor.createChinese() + "    " +randomInt(100) + "\n")
+//      out.write(Charactor.createChinese() + "," +randomInt(100) + "\n")
+      out.write(randomInt(10) + "," + randomInt(100) + "," + randomInt(1000) + "," + Charactor.createChinese1() + "," + Charactor.createChinese2()+ "," + Charactor.createChinese3()+ "," + Charactor.createChinese4() + "," +new Date  + "\n")
 
       out.close()
 
