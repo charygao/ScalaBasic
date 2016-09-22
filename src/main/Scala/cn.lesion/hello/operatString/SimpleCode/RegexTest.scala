@@ -9,7 +9,7 @@ import scala.util.matching.Regex
   */
 object RegexTest {
 
-  val address = "123 Main Street Suite 101"
+  val address = "123 Spider Street Suite 101"
   val noAddress = "No Address in this String"
 
   def main(args: Array[String]) {

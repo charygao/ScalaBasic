@@ -43,10 +43,10 @@ object scala_StrOpe {
   println(x)
 
   //向封闭类中添加方法
-  val _helloOpr1 = hello.drop(2).take(2).capitalize
+//  val _helloOpr1 = hello.drop(2).take(2).capitalize
   val _helloOpr2 = hello.slice(2, 4).capitalize
 
-  println("drop.take.capitalize : " + _helloOpr1)
+//  println("drop.take.capitalize : " + _helloOpr1)
   println("slice : " + _helloOpr2)
 
   //将字符串转换成大写
@@ -157,7 +157,7 @@ object scala_StrOpe {
   """.stripMargin
 
   //替换所有的数字为 ”x“。
-  val address = "123 Main Street Suite 101"
+  val address = "123 Spider Street Suite 101"
   println("替换address：" + address.replaceAll("[0-9]", "x"))
 
   val regex = "[0-9]".r
