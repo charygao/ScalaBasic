@@ -40,6 +40,9 @@ object spark4mysql {
     val cnFlight = sqlContext.read.jdbc(url,"taobuser_bao",prop)
 //    val emaillist = cnFlight.groupBy("user").count().show()
     val emaillist = cnFlight.count()
+    //取前十条
+    cnFlight.select("id","user").head(10).foreach(println)
+
     println(emaillist)
 //    val emaillist = cnFlight.select("user").where("id=10086")
 //    val sorted = emaillist.count().orderBy(desc("count"))
