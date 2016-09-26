@@ -10,23 +10,6 @@ import org.apache.spark.sql.hive.HiveContext
 object spark4mysql {
 
   def main(args: Array[String]): Unit = {
-/*
-
-    val hiveContext = new HiveContext()
-
-    val url="jdbc:mysql://192.168.1.9:3306/taob"
-    val prop = new java.util.Properties
-    prop.setProperty("user","root")
-    prop.setProperty("password","root")
-    val cnFlight = sqlContext.read.jdbc(url,"taobuser_bao",Array("country_code='CN'"),prop)
-    val emaillist = cnFlight.groupBy("user")
-    val sorted = emaillist.count().orderBy(desc("count"))
-    sorted.show(10)
-    sorter.write.jdbc(url,"abc".prop)
-    val sc: SparkContext
-    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-
-*/
 
     val conf = new SparkConf().setAppName("Spark MYSQL").setMaster("local[*]")
     val spark = new SparkContext(conf)
