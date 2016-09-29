@@ -25,8 +25,8 @@ object Spark_Steaming {
 
     val wordCounts = pairs.reduceByKey(_ + _)
 
-    wordCounts.print()
+wordCounts.print()
 
-  }
+}
 
 }
