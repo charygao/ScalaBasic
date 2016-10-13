@@ -13,7 +13,7 @@ object HdfsTest {
       System.err.println("Usage: HdfsTest <file>")
       System.exit(1)
     }
-    val sparkConf = new SparkConf().setAppName("HdfsTest").setMaster("local[*]")
+    val sparkConf = new SparkConf().setAppName("HdfsTest").setMaster("spark://192.168.1.61:7077")
     val sc = new SparkContext(sparkConf)
     val file = sc.textFile(args(0))
     val mapped = file.map(s => s.length).cache()
