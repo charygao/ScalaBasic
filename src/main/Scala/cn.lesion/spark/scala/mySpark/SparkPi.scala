@@ -13,7 +13,7 @@ import scala.math.random
 /** Computes an approximation to pi */
 object SparkPi {
   def main(args: Array[String]) {
-    val conf = new SparkConf().setAppName("Spark Pi").setMaster("local[*]")
+    val conf = new SparkConf().setAppName("Spark Pi").setMaster("spark://192.168.1.61:7077")
     val spark = new SparkContext(conf)
     val slices = if (args.length > 0) args(0).toInt else 2
     val n = 100000 * slices
