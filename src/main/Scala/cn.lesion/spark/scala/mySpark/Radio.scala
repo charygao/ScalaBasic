@@ -10,9 +10,6 @@ import org.apache.spark._
   * 广播变量和累加器
   */
 
-/**
-  *
-  */
 
 object Radio {
   def main(args: Array[String]) {
