@@ -47,7 +47,7 @@ object Scala4Hdfs {
     val fileSystem = FileSystem.get(conf)
 //    status(fileSystem, "/")
 
-    delete(fileSystem,"/out")
+    delete(fileSystem,"/out.txt")
 
   }
 }
