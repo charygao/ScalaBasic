@@ -11,5 +11,4 @@ object listTest {
     println(list.toSet)
     list.foreach(println)
   }
-
 }

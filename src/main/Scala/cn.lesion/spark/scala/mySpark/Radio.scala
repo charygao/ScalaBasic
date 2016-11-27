@@ -17,7 +17,7 @@ object Radio {
     val spark = new SparkContext(conf)
 
     val broadcastAlist = spark.broadcast("a","b","c","d","e")
-    spark.parallelize(List("1","2","3","4")).map(x => broadcastAlist.value + x).collect()
+    spark.parallelize(List("1","2","3","4","5")).map(x => broadcastAlist.value + x).collect()
 
     spark.stop()
 

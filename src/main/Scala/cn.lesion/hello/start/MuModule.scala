@@ -18,7 +18,7 @@ object MuModule { // 声明一个单例对象，即同时声明一个类和它�
 
   private def formatAbs(x: Int) = { // 一个私有方法只能被MyMould里的其他成员调用。
     val msg = "The abs value of %d is %d" //字符串里有两个占位符， %d代表数字。
-    msg.format(x,abs(x)) //在字符串里将2个占位符分别替换为x和abs(x)。
+    msg.format(x,abs(x)) //在字符串里将2个占位符分别替换为x和abs(x)。≈
   }
 
   def main(args: Array[String]) { //Unit类似于Java或C语言里的void。

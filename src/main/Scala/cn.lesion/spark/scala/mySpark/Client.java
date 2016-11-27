@@ -21,11 +21,8 @@ public class Client {
 
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-
         for (int i = 0; i < 0; i++) {
             out.write(i);
-
         }
-
     }
 }
