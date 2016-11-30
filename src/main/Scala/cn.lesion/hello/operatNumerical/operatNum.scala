@@ -96,10 +96,6 @@ object operatNum extends App {
 
     println(toInt(charStr).getOrElse())
 
-
-
-
-
   }
 
 }
