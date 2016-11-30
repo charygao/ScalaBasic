@@ -22,7 +22,6 @@ object MakeData {
 
   def randomInt(within: Int): String = {
 
-
     val numbers = new Random()
     val int = numbers.nextInt(within)
 
