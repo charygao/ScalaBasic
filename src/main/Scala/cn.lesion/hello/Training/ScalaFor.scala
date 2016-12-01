@@ -26,9 +26,9 @@ object ScalaFor {
   }
 
   //99乘法表
-  def makeTable() = {
+  def makeTable(): String = {
     val table = for (row <- 1 to 9) yield {
-      for (col <- 1 until 10) yield {
+      for (col <- 1.until(10)) yield {
         val line = (row * col).toString
         val spaces = " " * (4 - line.length)
         (line + spaces).mkString
