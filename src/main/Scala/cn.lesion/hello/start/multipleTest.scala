@@ -1,5 +1,7 @@
 package cn.lesion.hello.start
 
+import java.util.Date
+
 /**
   * Created for Intellij IDEA.
   * Author:e.le.lee.
@@ -22,15 +24,19 @@ object multipleTest {
     b
   }
 
-  """
-    |do-while循环
-  """.stripMargin
-  var line=""
-  do {
-    line = readLine()
-    println("Read: " + line)
-  } while (line !="")
+  def testWhile(): Unit ={
 
+    """
+      |do-while循环
+    """.stripMargin
+    var line=""
+    do {
+      line = readLine()
+      println("Read: " + line)
+    } while (line !="")
+
+
+  }
 
   def multiTable1(): Unit = {
     for(row <- 1 to 9 ; col <- 1 to row){
