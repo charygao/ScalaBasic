@@ -8,7 +8,8 @@ package cn.lesion.hello.start
 object HelloScala {
 
   def main(args: Array[String]) {
-    factorial(4)
+//    factorial(4)
+    readTest("abc")
   }
 
   """
@@ -16,6 +17,13 @@ object HelloScala {
   """.stripMargin
   def factorial(n: Int): Unit = {
     println(1 to n reduceLeft(_*_))
+  }
+
+  def fac(n: Int): Int = {
+    if (n<1)
+      1
+    else
+      n*fac(n-1)
   }
 
   """
@@ -26,5 +34,11 @@ object HelloScala {
     else fibonacci(n - 1) + fibonacci(n - 2)
   }
 
+
+  def readTest(input: String): String = {
+
+    val name = readLine("your name is ")
+    name
+  }
 
 }
