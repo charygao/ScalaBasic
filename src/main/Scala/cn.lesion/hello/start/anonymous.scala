@@ -17,7 +17,6 @@ class anonymous(codeName:String,age:Int) extends Person(codeName){
   def meet(p:Person{def greeting:String}): Unit ={
     println("p.greeting")
   }
-
 }
 
 object test{
