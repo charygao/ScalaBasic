@@ -58,10 +58,8 @@ object WordCount {
     conf.set("fs.defaultFS","hdfs://love:9000")
     conf.set("mapred.job.tracker","hdfs://love:9001")
 
-
     conf.setOutputKeyClass(classOf[Text])
     conf.setOutputValueClass(classOf[IntWritable])
-
 
     conf.setMapperClass(classOf[Map])
     conf.setCombinerClass(classOf[Reduce])
