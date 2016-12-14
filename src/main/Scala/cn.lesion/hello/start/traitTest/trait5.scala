@@ -21,7 +21,7 @@ trait trait5s extends trait5{
 
 object start{
   def main(args: Array[String]): Unit = {
-    val x = new Dog with trait5s
+    val x = new Dog() with trait5s
     x.run()
   }
 }
