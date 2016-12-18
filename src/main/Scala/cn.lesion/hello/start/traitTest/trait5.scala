@@ -16,7 +16,7 @@ class Dog extends trait5{
 }
 
 trait trait5s extends trait5{
-  override def log(msg: String): Unit = super.log("myloger" + msg)
+  override def log(msg: String): Unit = super.log(msg)
 }
 
 object start{
