@@ -24,4 +24,5 @@ object start{
     val x = new Dog() with trait5s
     x.run()
   }
+  val arr: Array[String] = Array("a","b","c").map(_ + "00")
 }
