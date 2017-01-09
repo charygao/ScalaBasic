@@ -1,5 +1,7 @@
 package cn.lesion.hello.start
 
+import scala.Double.{NegativeInfinity, PositiveInfinity}
+
 /**
   * Created for Intellij IDEA.
   * Author:e.le.lee.
@@ -12,8 +14,8 @@ object TransformationTest {
     //支持所有普通数值操作符
 
     //普通数值类型
-    Double.PositiveInfinity
-    Double.NegativeInfinity
+    PositiveInfinity
+    NegativeInfinity
 
     //测试是否可以转换类型：
     println(b.isValidByte)

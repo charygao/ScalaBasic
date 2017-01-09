@@ -45,9 +45,9 @@ object Scala4Hdfs {
 
     println(conf) //Configuration: core-default.xml, core-site.xml
     val fileSystem = FileSystem.get(conf)
-//    status(fileSystem, "/")
+    status(fileSystem, "/")
 
-    delete(fileSystem,"/out.txt")
+//  delete(fileSystem,"/out.txt")
 
   }
 }

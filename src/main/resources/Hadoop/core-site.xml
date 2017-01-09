@@ -4,10 +4,10 @@
 <configuration>
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://love:9000</value>
+        <value>hdfs://master:9000</value>
     </property>
     <property>
         <name>mapred.job.tracker</name>
-        <value>hdfs://love:9001</value>
+        <value>hdfs://master:9001</value>
     </property>
 </configuration>
